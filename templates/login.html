@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teachSystem</title>
+    <link rel="stylesheet" href="static/teachSystem.css" type="text/css" media="screen">
+</head>
+<body>
+<div id="Catalog">
+    <form method="post" name="loginForm">
+    <h1 align="center">敏捷教学平台</h1>
+    <table align="center">
+        <tr>
+            <td colspan="2" align="center"><h2 align="center">用户登录</h2></td>
+        </tr>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" name="username" value=""/></td>
+        </tr>
+        <tr>
+            <td>密&nbsp&nbsp&nbsp码：</td>
+            <td><input type="password" name="password" value=""/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="radio" name="user_type" value="student" checked="true" align="center">学生
+                <input type="radio" name="user_type" value="teacher" align="center">教师
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="signon" value="登录" align="center"/></td>
+        </tr>
+    </table>
+    {% for message in get_flashed_messages() %}
+        <font color="red">{{ message }}</font>
+    {% endfor %}
+    </form>
+    <a href="{{ url_for('register_student') }}">学生注册</a>
+    <a href="{{ url_for('register_teacher') }}">教师注册</a>
+</div>
+
+</body>
+</html>

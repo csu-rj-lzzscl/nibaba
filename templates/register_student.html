@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teachSystem</title>
+    <script type="text/javascript" src="static/teachSystem.js"></script>
+    <link rel="stylesheet" href="static/teachSystem.css" type="text/css" media="screen">
+</head>
+<body>
+<div id="Catalog">
+    <form method="post" name="registerForm">
+        <h2>用户注册</h2>
+        <h3>基本信息</h3>
+        <table>
+            <tr>
+                <td>用户名:</td>
+                <td>
+                    <input type="text" name="username" onblur="usernameIsExist()"/>
+                    <div id="usernameMsg">
+                        {% for message in get_flashed_messages() %}
+                            {{ message }}
+                        {% endfor %}
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>新密码:</td>
+                <td>
+                    <input type="password" name="password" onblur="passwordIsValid()"/>
+                    <div id="passwordMsg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>确认密码:</td>
+                <td>
+                    <input type="password" name="repeatedPassword" onblur="passwordIsSame()"/>
+                    <div id="repeatedPasswordMsg"></div>
+                </td>
+            </tr>
+        </table>
+        <h3>账户信息</h3>
+        <table>
+            <tr>
+                <td>电话:</td>
+                <td>
+                    <input type="text" name="telephone" size="40" value=""/>
+                </td>
+            </tr>
+            <tr>
+                <td>电子邮箱:</td>
+                <td>
+                    <input type="text" name="email" size="40" value="" onblur="emailIsValid()"/>
+                    <div id="emailMsg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>教室ID:</td>
+                <td>
+                    <input type="text" name="classroom" size="40" value="">
+                    <div id="classroomMsg"></div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="newAccount" value="保存" onclick="checkAllRegisterForm()">
+    </form>
+</div>
+</body>
